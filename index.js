@@ -174,15 +174,5 @@ function addMove(pokémon,move) {
 // 0,5, si el pokémon atacado es resistente ( resistances) contra el tipo del pokémon que ataca
 // 1, si no es débil ni resistente
 
-function getAttackModifier (pokémonCombo) {
-    const attackedPokémon=pokémonCombo.attacked;
-    if(attackedPokémon.modifiers.weakness.includes(pokémonCombo.attacker.type)){
-     return 2;   
-    }else if (attackedPokémon.modifiers.resistances.includes(pokémonCombo.attacker.type)){
-        return 0.5;
-    }else{
-        return 1;
-    }
-};
 
-// Crear una función getAttackLog, que tome como argumento un objeto con las siguientes propiedades:
+
