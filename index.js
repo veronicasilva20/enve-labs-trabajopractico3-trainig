@@ -98,31 +98,33 @@ function getWeaknesses(pokemon) {
 
 function getResistances(pokemon) {
   return pokemon.modifiers.resistances;
-}
+};
 
 function resistsType(pokemon, targetType) {
   return pokemon.modifiers.resistances.includes(targetType);
-}
-
+};
+function resistsMove(okemon,move) {
+    return pokemon.modifier.resistances;
+};
 function isWeakAgainst(pokemonCombo) {
   return pokemonCombo.attacked.modifiers.weakness.includes(pokemonCombo.attacker.type);
-}
+};
 
 function isStrongAgainst(pokemonCombo) {
   return pokemonCombo.attack.modifiers.resistances.includes(pokemonCombo.attacker.type);
-}
+};
 
 function addAbility(pokemon, ability) {
   let newPokemon = { ...pokemon };
   newPokemon.ability = { ...newPokemon.ability, ...ability };
   return newPokemon;
-}
+};
 
 function addMove(pokemon, move) {
   let newPokemon = { ...pokemon };
   newPokemon.moves.push(move);
   return newPokemon;
-}
+};
 
 function getAttackModifier(pokemonCombo) {
   if (isWeakAgainst(pokemonCombo)) {
@@ -132,11 +134,11 @@ function getAttackModifier(pokemonCombo) {
   } else {
     return 1;
   }
-}
+};
 
 function calculateDamage(attack, defense, modifier) {
   return (0.5 * attack * (attack / defense) * modifier).toFixed(2);
-}
+};
 
 function getAttackLog(attackData) {
   let modifierMsg = attackData.modifier === "weak"
@@ -146,7 +148,7 @@ function getAttackLog(attackData) {
       : "";
 
   return `${attackData.attacker} used ${attackData.move}! ${attackData.attacked} lost ${attackData.damage} HP! ${modifierMsg}`;
-}
+};
 // funcion  que genero para la batalla.
 
 function battle(pokemon1, pokemon2) {
