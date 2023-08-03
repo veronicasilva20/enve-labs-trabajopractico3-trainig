@@ -82,6 +82,7 @@ const pikachu = {
         "resistances": ["electric", "flying", "water", "steel"]
     }
 };
+//creo las  funciones de cada argumento.
 
 function getMoves(pokemon) {
   return pokemon.moves;
@@ -146,6 +147,7 @@ function getAttackLog(attackData) {
 
   return `${attackData.attacker} used ${attackData.move}! ${attackData.attacked} lost ${attackData.damage} HP! ${modifierMsg}`;
 }
+// funcion  que genero para la batalla.
 
 function battle(pokemon1, pokemon2) {
   let history = [];
@@ -164,9 +166,10 @@ function battle(pokemon1, pokemon2) {
       attack: attacker.stats.attack,
       defense: attacked.stats.defense
     });
+
     let damage = calculateDamage(attacker.stats.attack, attacked.stats.defense, modifier);
 
-    attacked.stats.hp -= damage;
+    attacked.stats.hp = Math.max(0,attacked.stats.hp -damage);
 
     let log = getAttackLog({
       attacker: attacker.name,
@@ -239,7 +242,7 @@ function main() {
 
   let battleResult = battle(squirtle, pikachu);
 
-  console.log("Battle Result:");
+  console.log("Battle Result:" );
   console.log("Rounds:", battleResult.rounds);
   console.log("Winner:", battleResult.results.winner);
   console.log("Loser:", battleResult.results.loser);
