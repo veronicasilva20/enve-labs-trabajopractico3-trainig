@@ -103,16 +103,13 @@ function getResistances(pokemon) {
 function resistsType(pokemon, targetType) {
   return pokemon.modifiers.resistances.includes(targetType);
 };
-function resistsMove(okemon,move) {
+function resistsMove(pokemon,move) {
     return pokemon.modifier.resistances;
 };
 function isWeakAgainst(pokemonCombo) {
   return pokemonCombo.attacked.modifiers.weakness.includes(pokemonCombo.attacker.type);
 };
 
-function isStrongAgainst(pokemonCombo) {
-  return pokemonCombo.attack.modifiers.resistances.includes(pokemonCombo.attacker.type);
-};
 
 function addAbility(pokemon, ability) {
   let newPokemon = { ...pokemon };
@@ -256,3 +253,4 @@ function main() {
 
 // Llamamos a la función principal para que se ejecute el código
 main();
+
